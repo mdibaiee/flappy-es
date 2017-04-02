@@ -8,9 +8,8 @@ Training process is pretty fast as there is no backpropagation, and is not very 
 
 Here is a demonstration of the model before training and after ~3000 iterations (less than an hour of training):
 
-Before training:
-
-![before training](/demo/flappy-lose.gif)
+[Before training](/demo/flappy-lose.gif)
+[After training:](/demo/flappy-success.gif)
 ![after training](/demo/flappy-success.gif)
 
 For each frame the bird stays alive, +1 score is given to him. For each wall he passes, +10 score is given.
