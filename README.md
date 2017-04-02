@@ -26,9 +26,10 @@ The pretrained parameters are in a file named `load.npy` and will be loaded when
 
 `train.py` will train the model, saving the parameters to `saves/<TIMESTAMP>/save-<ITERATION>`.
 
-`demo.py` shows the game in a GTK window so you can see how the AI actually plays.
+`demo.py` shows the game in a GTK window so you can see how the AI actually plays (like the GIF above).
 
 `play.py` if you feel like playing the game yourself, space: jump, once lost, press enter to play again. :grin:
+
 _pro tip: reach 100 score and you will become THUG FOR LIFE :smoking:_
 
 Notes
