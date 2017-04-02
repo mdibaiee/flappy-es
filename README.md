@@ -6,13 +6,11 @@ After reading [Evolution Strategies as a Scalable Alternative to Reinforcement L
 The model learns to play very well after ~1500 iterations, but not completely flawless and it usually loses in difficult cases (high difference between two wall entrances).
 Training process is pretty fast as there is no backpropagation, and is not very costy in terms of memory as there is no need to record actions as in policy gradients.
 
-Here is a demonstration of the model before training and after ~3000 iterations (less than an hour of training):
-
-[After training:](/demo/flappy-success.gif)
+Here is a demonstration of the model after ~1500 iterations (less than an hour of training):
 
 ![after training](/demo/flappy-success.gif)
 
-[Before training](/demo/flappy-lose.gif)
+also see: [Before training](/demo/flappy-lose.gif)
 
 For each frame the bird stays alive, +1 score is given to him. For each wall he passes, +10 score is given.
 
