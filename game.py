@@ -94,7 +94,7 @@ class dotdict(dict):
 # too long to finish after a while of training
 MAX_FRAMES = 10000
 def play(fn, step=None):
-    game = Game(200, 200)
+    game = Game(250, 200)
     frame = 0
 
     # while showing to user, we want to update the GTK frontend

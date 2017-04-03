@@ -47,7 +47,7 @@ for i in range(10000):
     print("{}: ".format(i), end='')
     es.train()
 
-    if i % SHOW_EVERY == 0:
+    if SHOW_EVERY and i % SHOW_EVERY == 0:
         play(es.forward, step=step)
         Gtk.main_quit()
         print(' shown')

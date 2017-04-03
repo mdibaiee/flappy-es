@@ -68,7 +68,7 @@ class Window(Gtk.Window):
         else:
             self.gameover.set_text('')
 
-        self.score.set_text(str(self.game.score))
+        self.score.set_text(str(round(self.game.score, 2)))
 
         self.game.update()
 
