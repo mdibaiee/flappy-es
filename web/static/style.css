@@ -59,3 +59,35 @@ footer > * {
 .btn i {
   font-size: 25px;
 }
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 9999;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  position: fixed;
+
+  opacity: 0;
+  pointer-events: none;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

@@ -511,8 +511,12 @@ function newGame() {
     return;
   }
 
+  $('#loading').addClass('active');
+
   fetch('/play').then(res => res.json()).then(function(states) {
     playing = true;
+
+    $('#loading').removeClass('active');
 
     var i = 0;
     setTimeout(function p() {
