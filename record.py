@@ -1,12 +1,8 @@
 from es import EvolutionStrategy
 import numpy as np
 from game import Game, play
-from win import Window, GAME_SPEED
-import gi
-from gi.repository import Gtk, GLib, Gdk
 from os import path
 import os
-import time
 import json
 
 es = EvolutionStrategy(fn=play, noisep=50, sigma=0.1, alpha=0.001, layer_sizes=[[4, 500], [500, 1]], input_size=4)
