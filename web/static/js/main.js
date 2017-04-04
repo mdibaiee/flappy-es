@@ -518,6 +518,8 @@ function newGame() {
 
     $('#loading').removeClass('active');
 
+    $("#player").css({ rotate: 0 });
+
     var i = 0;
     setTimeout(function p() {
        if (!playing) return;
@@ -531,7 +533,7 @@ function newGame() {
          var playerbottom = $("#player").position().top + $("#player").width(); //we use width because he'll be rotated 90 deg
          var floor = flyArea;
          var movey = Math.max(0, floor - playerbottom);
-         $("#player").transition({ y: movey + 'px', rotate: 90}, 1000, 'easeInOutCubic');
+         $("#player").transition({ top: movey + 'px', rotate: 90}, 1000, 'easeInOutCubic');
 
          if(isIncompatible.any())
          {
