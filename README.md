@@ -42,4 +42,4 @@ My interpretation is that after finding a local maximum for accumulated reward a
 the updates become pretty large and will pull the model too much to sides, thus the model will enter a state of oscillation.
 
 To try it yourself, there is a `long.npy` file, rename it to `load.npy` (backup `load.npy` before doing so) and run `demo.py`,
-you will see the bird failing more often than not. `long.py` was trained for 100 more iterations than `load.npy`.
+you will see the bird failing more often than not. `long.py` was trained for only 100 more epochs than `load.npy`.
