@@ -1,5 +1,6 @@
 import numpy as np
 import random
+from copy import copy
 
 GRAVITY = 2
 FRICTION = 0.9
@@ -12,6 +13,9 @@ class Game():
         self.wall = self.create_wall()
         self.lost = False
         self.score = 0;
+        self.record = False
+
+        self.states = []
 
     def update(self):
         self.bird.update()
@@ -21,7 +25,8 @@ class Game():
         if (self.wall.x + self.wall.width) < self.width / 2:
             self.wall = self.create_wall()
             self.score += 10
-            print("\033[32m+\033[0m", end='')
+            if not self.record:
+                print("\033[32m+\033[0m", end='')
 
         if self.intercept(self.bird, self.wall):
             self.lost = True
@@ -33,6 +38,28 @@ class Game():
         # our birds will try to stay alive longer and
         # our evolution strategy won't start with zero reward
         self.score += 0.1
+
+        if self.record:
+            rec = { 'width': self.width,
+                    'height': self.height,
+                    'lost': self.lost,
+                    'score': round(self.score, 2),
+                    
+
+                    'bird': {
+                        'x': self.bird.x,
+                        'y': self.bird.y,
+                    },
+
+                    'wall': {
+                        'x': self.wall.x,
+                        'gate': {
+                            'y': self.wall.gate.y,
+                            'height': self.wall.gate.height
+                        }
+                    }
+                }
+            self.states.append(rec)
 
     # create a wall, the wall is between the 15%-65% of the screen
     def create_wall(self):
@@ -93,7 +120,7 @@ class dotdict(dict):
 # limit the game to 1000 frames while training, sometimes a game might take
 # too long to finish after a while of training
 MAX_FRAMES = 10000
-def play(fn, step=None):
+def play(fn, step=None, record=False):
     game = Game(250, 200)
     frame = 0
 
@@ -101,6 +128,9 @@ def play(fn, step=None):
     # the `step` function is responsible for doing just that, see index.py
     if step:
         return step(game, lambda: show_update(fn, game))
+
+    if record:
+        game.record = True
 
     while not game.lost and frame < MAX_FRAMES:
         frame += 1
@@ -112,6 +142,9 @@ def play(fn, step=None):
             game.bird.jump()
 
         game.update()
+
+    if record:
+        return game.states
 
     return game.score
 

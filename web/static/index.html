@@ -1,0 +1,81 @@
+<html class="fa-events-icons-ready"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Playing Flappy Bird using Evolution Strategies</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Nebez Briefkani" />
+  <meta name="description" content="play floppy bird. a remake of popular game flappy bird using just html/css/js" />
+  <meta name="keywords" content="flappybird,flappy,bird,floppybird,floppy,html,html5,css,css3,js,javascript,jquery,github,nebez,briefkani,nebezb,open,source,opensource" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="Floppy Bird" />
+  <meta property="og:description" content="play floppy bird. a remake of popular game flappy bird using just html/css/js" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://nebez.github.io/floppybird/assets/thumb.png" />
+  <meta property="og:url" content="http://nebez.github.io/floppybird/" />
+  <meta property="og:site_name" content="Floppy Bird" />
+  
+  <!-- Style sheets -->
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="main_files/befea5cf35.js"></script><link href="main_files/befea5cf35.css" media="all" rel="stylesheet">
+  <script src="main_files/socket.js"></script>
+</head>
+
+<body><header>
+  <h1>Playing Flappy Bird using Evolution Strategies</h1>
+</header>
+
+  <div id="gamecontainer">
+      <div id="gamescreen">
+        <div id="sky" class="animated">
+            <div id="flyarea">
+              <div id="ceiling" class="animated"></div>
+              <!-- This is the flying and pipe area container -->
+              <div id="player" class="bird animated"></div>
+              
+              <div id="bigscore"></div>
+              
+              <div id="splash"></div>
+              
+              <div id="scoreboard">
+                  <div id="medal"></div>
+                  <div id="currentscore"></div>
+                  <div id="highscore"></div>
+                  <div id="replay"><img src="assets/replay.png" alt="replay"></div>
+              </div>
+              
+              <!-- Pipes go here! -->
+            </div>
+        </div>
+        <div id="land" class="animated"><div id="debug"></div></div>
+      </div>
+  </div>
+    </div>
+  </div>
+  <div class="boundingbox" id="playerbox"></div>
+  <div class="boundingbox" id="pipebox"></div>
+
+  <div class='controls'>
+    <a id='new' class='btn' title='Fetch a new game'><i class='fa fa-refresh'></i></a>
+    <a id='faster' class='btn' title='Faster'><i class='fa fa-plus-square'></i></a>
+    <a id='slower' class='btn' title='Slower'><i class='fa fa-minus-square'></i></a>
+  </div>
+  
+<footer>
+  <p>Inspired by <a href="https://blog.openai.com/evolution-strategies/">Evolution Strategies as a Scalable Alternative to Reinforcement Learning</a> by <a href="https://openai.com/">OpenAI</a></p><a href="https://openai.com/">
+
+  <a class='small' href="http://github.com/nebez/floppybird/">HTML5 game by nebez/floppybird</a>
+
+  </a><div class="links"><a href="https://openai.com/">
+    </a><a class="github" href="https://github.com/mdibaiee/flappy-es" alt="GitHub">GitHub <i class="fa fa-github"></i></a>
+    <a class="aylien" href="https://aylien.com/"><img src="main_files/aylien.png" alt="Aylien" width="32"></a>
+  </div>
+</footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.transit.min.js"></script>
+  <script src="js/buzz.min.js"></script>
+  <script src="js/main.js"></script>
