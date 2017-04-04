@@ -519,7 +519,7 @@ function newGame() {
        if (!playing) return;
 
        var state = states[i];
-       if (state.lost || !state) {
+       if (!state || state.lost) {
          $(".animated").css('animation-play-state', 'paused');
          $(".animated").css('-webkit-animation-play-state', 'paused');
          
