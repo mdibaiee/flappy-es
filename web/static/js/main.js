@@ -513,7 +513,7 @@ function newGame() {
 
   $('#loading').addClass('active');
 
-  fetch('/play').then(res => res.json()).then(function(states) {
+  fetch('play').then(res => res.json()).then(function(states) {
     playing = true;
 
     $('#loading').removeClass('active');

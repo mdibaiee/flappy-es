@@ -4,17 +4,18 @@ var express = require('express'),
     io = require('socket.io')(server)
     exec = require('child_process').exec
     compression = require('compression')
-    path = require('path');
+    path = require('path'),
+    router = express.Router();
 
 
 server.listen(8088);
-app.use(express.static(__dirname + '/static'))
-app.use(compression())
-app.use('/assets/', express.static(__dirname + '/../assets/'))
+router.use(express.static(__dirname + '/static'))
+router.use(compression())
+router.use('/assets/', express.static(__dirname + '/../assets/'))
 
 
 var record = path.resolve(__dirname, '../record.py');
-app.get('/play', function(request, response) {
+router.get('/play', function(request, response) {
   var child = exec('python3 ' + record, { maxBuffer: 1024 * 5000 }, function(err, out, stderr) {
     if (err || stderr) {
       console.log(err || stderr)
@@ -26,3 +27,5 @@ app.get('/play', function(request, response) {
   child.stdout.pipe(response);
 });
 
+
+app.use('/flappy-bird', router);
