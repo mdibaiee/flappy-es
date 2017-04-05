@@ -12,6 +12,8 @@ Here is a demonstration of the model after 3000 epochs (~5 minutes on an Intel(R
 
 also see: [Before training](/demo/flappy-lose.gif)
 
+There is also a [a web version](labs.aylien.com/flappy-bird) available for ease of access.
+
 For each frame the bird stays alive, +0.1 score is given to him. For each wall he passes, +10 score is given.
 
 Try it yourself
