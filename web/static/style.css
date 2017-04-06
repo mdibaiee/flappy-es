@@ -49,6 +49,7 @@ a:hover {
 
 footer > * {
   margin-top: 2rem;
+  font-size: 12px;
 }
 
 .btn {
@@ -90,4 +91,12 @@ footer > * {
 .overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.controls p {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 500px;
+  font-size: 12px;
+  line-height: 1.4em;
 }
