@@ -6,8 +6,7 @@ After reading [Evolution Strategies as a Scalable Alternative to Reinforcement L
 The model learns to play very well after 3000 epochs, but not completely flawless and it rarely loses in difficult cases (high difference between two wall entrances).
 Training process is pretty fast as there is no backpropagation, and is not very costy in terms of memory as there is no need to record actions as in policy gradients.
 
-Here is a demonstration of the model after 3000 epochs (~5 minutes on an Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz):
-
+Here is a demonstration of the model after 3000 epochs (~5 minutes on an Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz): 
 ![after training](/demo/flappy-success.gif)
 
 also see: [Before training](/demo/flappy-lose.gif)
@@ -43,3 +42,18 @@ the updates become pretty large and will pull the model too much to sides, thus 
 
 To try it yourself, there is a `long.npy` file, rename it to `load.npy` (backup `load.npy` before doing so) and run `demo.py`,
 you will see the bird failing more often than not. `long.py` was trained for only 100 more epochs than `load.npy`.
+
+Web Server
+----------
+
+To setup the web server, follow the steps below:
+
+```
+cd web
+npm install
+node server.js
+```
+
+You may want to use [pm2](https://github.com/Unitech/pm2) to run the server as a daemon in the background.
+
+Now you can redirect traffic to the port the server is listening on (8088 by default).
