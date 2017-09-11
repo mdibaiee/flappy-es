@@ -46,7 +46,7 @@ you will see the bird failing more often than not. `long.py` was trained for onl
 Web Server
 ----------
 
-To setup the web server, follow the steps below:
+To setup the web server, after installing the dependencies by running `pip install -r requirements`, follow the steps below:
 
 ```
 cd web
