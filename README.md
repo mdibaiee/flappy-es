@@ -15,7 +15,7 @@ For each frame the bird stays alive, +0.1 score is given to him. For each wall h
 
 Try it yourself
 ---------------
-You need python3 and pip for installing and running the code.
+You need python3.5 and pip for installing and running the code.
 
 First, install dependencies (you might want to create a [virtualenv](https://virtualenv.pypa.io)):
 

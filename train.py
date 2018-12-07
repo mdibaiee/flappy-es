@@ -7,6 +7,7 @@ from gi.repository import Gtk, GLib, Gdk
 from datetime import datetime
 from os import path
 import os
+from draw_chart import draw_chart
 
 es = EvolutionStrategy(fn=play, noisep=50, sigma=0.1, alpha=0.001, layer_sizes=[[4, 500], [500, 1]], input_size=4)
 load = path.join(path.dirname(__file__), 'load.npy')
@@ -14,13 +15,15 @@ load = path.join(path.dirname(__file__), 'load.npy')
 np.random.seed(0)
 
 # if load.npy exists, load the parameters from it
-if path.exists(load):
+if path.exists(load) and not os.environ.get('SKIP_LOAD'):
     es.layers = np.load(load)
 
 # show the game every n iterations
-SHOW_EVERY = 100
+SHOW_EVERY = int(os.environ.get('SHOW_EVERY', 100))
 # save the parameters every n iterations
-SAVE_EVERY = 100
+SAVE_EVERY = int(os.environ.get('SAVE_EVERY', 100))
+# number of steps
+STEPS = int(os.environ.get('STEPS', 10000))
 
 # an id for saving the parameters in a folder
 run_id = str(datetime.now())
@@ -45,9 +48,22 @@ def timeout_kill(win, game):
     
     return True
 
-for i in range(10000):
+reward_scatter_x = []
+reward_scatter_y = []
+
+reward_line_x = list(range(STEPS))
+reward_line_y = []
+
+for i in range(STEPS):
     print("{}: ".format(i), end='')
-    es.train()
+    rewards = es.train()
+    m = np.mean(rewards)
+
+    reward_line_y.append(m)
+
+    for r in rewards:
+        reward_scatter_x.append(i)
+        reward_scatter_y.append(r)
 
     if SHOW_EVERY and i % SHOW_EVERY == 0:
         play(es.forward, step=step)
@@ -60,4 +76,4 @@ for i in range(10000):
     if i % SAVE_EVERY == 0:
         p = path.join(path.dirname(__file__), 'saves', run_id, 'save-{}'.format(i))
         np.save(p, es.layers)
-
+        draw_chart(reward_scatter_x, reward_scatter_y, reward_line_x, reward_line_y)
