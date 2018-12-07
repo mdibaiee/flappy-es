@@ -69,5 +69,5 @@ class EvolutionStrategy():
             # np.dot(n.T, A) scales each noise's contribution to the update by how much reward it had received
             update = self.alpha / (self.noisep * self.sigma) * np.dot(n.T, A).T
             self.layers[i] = self.layers[i] + update
-            
 
+        return R

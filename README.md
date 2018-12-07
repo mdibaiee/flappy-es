@@ -7,15 +7,21 @@ The model learns to play very well after 3000 epochs, but not completely flawles
 Training process is pretty fast as there is no backpropagation, and is not very costy in terms of memory as there is no need to record actions as in policy gradients.
 
 Here is a demonstration of the model after 3000 epochs (~5 minutes on an Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz): 
+
 ![after training](/demo/flappy-success.gif)
 
-also see: [Before training](/demo/flappy-lose.gif)
+Before training:
+
+![Before training](/demo/flappy-lose.gif)
 
 For each frame the bird stays alive, +0.1 score is given to him. For each wall he passes, +10 score is given.
 
+Demonstration of rewards for individuals and the mean reward over time (y axis is logarithmic):
+![reward chart](fig-log.jpg)
+
 Try it yourself
 ---------------
-You need python3 and pip for installing and running the code.
+You need python3.5 and pip for installing and running the code.
 
 First, install dependencies (you might want to create a [virtualenv](https://virtualenv.pypa.io)):
 
