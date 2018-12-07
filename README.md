@@ -10,15 +10,20 @@ Here is a demonstration of the model after 3000 epochs (~5 minutes on an Intel(R
 
 ![after training](/demo/flappy-success.gif)
 
-also see: [Before training](/demo/flappy-lose.gif)
+Before training:
+
+![Before training](/demo/flappy-lose.gif)
 
 There is also a [a web version](http://labs.aylien.com/flappy-bird) available for ease of access.
 
 For each frame the bird stays alive, +0.1 score is given to him. For each wall he passes, +10 score is given.
 
+Demonstration of rewards for individuals and the mean reward over time (y axis is logarithmic):
+![reward chart](fig-log.jpg)
+
 Try it yourself
 ---------------
-You need python3 and pip for installing and running the code.
+You need python3.5 and pip for installing and running the code.
 
 First, install dependencies (you might want to create a [virtualenv](https://virtualenv.pypa.io)):
 
