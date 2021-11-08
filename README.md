@@ -14,7 +14,7 @@ Before training:
 
 ![Before training](/demo/flappy-lose.gif)
 
-There is also a [a web version](http://labs.aylien.com/flappy-bird) available for ease of access.
+There is also a [a web version](https://lab.mahdi.blog/flappy-bird/) available for ease of access.
 
 For each frame the bird stays alive, +0.1 score is given to him. For each wall he passes, +10 score is given.
 
